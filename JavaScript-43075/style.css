@@ -1,0 +1,26 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color:#000000;
+}
+
+h1 {
+    color: darkblue;
+    font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 10rem;
+    text-align: center;
+    padding-top: 10rem;
+    text-shadow: 2px 2px white;
+}
+
+h2{
+    color: darkblue;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 4rem;
+    text-align: center;
+    text-shadow: 1px 1px white;
+}
+
