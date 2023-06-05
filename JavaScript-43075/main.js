@@ -1,35 +1,28 @@
-function saludar() {
-    alert(
-        "Bienvenidos a Jordan Brand, a continuación recibira un listado con todos nuestros productos disponibles."
-    );
-}
+let titulo = document.getElementById("title");
+titulo.className = "titulo";
 
-saludar();
-
-// Constructor de productos
+// // Constructor de productos
 
 class Zapatillas {
-    constructor(marca, precio, id) {
+    constructor(objeto, marca, precio) {
+        this.objeto = objeto;
         this.marca = marca;
         this.precio = precio;
-        this.id = id;
     }
 }
 
-const zapatilla1 = new Zapatillas("Air Jordan 5 Retro", 45000, "ID: AJ5");
-const zapatilla2 = new Zapatillas("Jordan Delta 3 Low", 55000, "ID: JDL");
-const zapatilla3 = new Zapatillas("Jordan Air 200E", 40000, "ID: JAE");
-const zapatilla4 = new Zapatillas(
-    "Air Jordan Legacy 312 Low",
-    50000,
-    "ID: AJLL"
-);
-const zapatilla5 = new Zapatillas("Air Jordan 1 KO", 35000, "ID: JKO");
-const zapatilla6 = new Zapatillas("Air Jordan 11 Retro", 55000, "ID: AJ11");
-const zapatilla7 = new Zapatillas("Air Jordan XXXVII", 45000, "ID: JVII");
-const zapatilla8 = new Zapatillas("Jordan Jumpman Two Trey", 65000, "ID: JJTT");
-const zapatilla9 = new Zapatillas("Jordan Series Mind", 35000, "ID: JSM");
-const zapatilla10 = new Zapatillas("Air Jordan 12 Retro", 60000, "ID: AJ12");
+const zapatilla1 = new Zapatillas("./img/jordan1.webp", "Jordan Delta 3 Low", 55000);
+const zapatilla2 = new Zapatillas("./img/jordan2.webp", "Air Jordan 5 Mix", 45000);
+const zapatilla3 = new Zapatillas("./img/jordan3.webp", "Jordan Air 200E", 40000);
+const zapatilla4 = new Zapatillas("./img/jordan4.webp", "Jordan Legacy 312 Low", 50000);
+const zapatilla5 = new Zapatillas("./img/jordan5.webp", "Air Jordan 1 KO", 35000);
+const zapatilla6 = new Zapatillas("./img/jordan6.webp", "Air Jordan 11", 55000);
+const zapatilla7 = new Zapatillas("./img/jordan7.webp", "Air Jordan XXXVII", 45000);
+const zapatilla8 = new Zapatillas("./img/jordan8.webp", "Jumpman Two Trey", 65000);
+const zapatilla9 = new Zapatillas("./img/jordan9.webp", "Jordan Series Mind", 35000);
+const zapatilla10 = new Zapatillas("./img/jordan10.webp", "Air Jordan 12", 60000);
+const zapatilla11 = new Zapatillas("./img/jordan11.webp", "Air Jordan Max", 65000);
+const zapatilla12 = new Zapatillas("./img/jordan12.webp", "Air Jordan 4 Midnight ", 55000);
 
 const arrayZapatillas = [];
 
@@ -43,26 +36,31 @@ arrayZapatillas.push(zapatilla7);
 arrayZapatillas.push(zapatilla8);
 arrayZapatillas.push(zapatilla9);
 arrayZapatillas.push(zapatilla10);
+arrayZapatillas.push(zapatilla11);
+arrayZapatillas.push(zapatilla12);
 
-// Recorrer el arreglo de objetos
 
-let mensaje = "Los productos disponibles son: \n";
-arrayZapatillas.forEach((zapatilla1) => {
-    mensaje = mensaje + `${zapatilla1.marca}: $${zapatilla1.precio}\n`;
-});
-alert(mensaje);
+arrayZapatillas.forEach((item) => {
+    let div = document.createElement("div");
+    div.innerHTML = `
+    <img src="${item.objeto}" alt="" width="250px">
+    <p>${item.marca}</p>
+    <b>$${item.precio}</b>
+    <br>
+    <button id="boton" class="productos-button">COMPRAR</button>
+    `;
+    
+    container.append(div);
+    div.classList.add('productos');
+    
+    let boton = document.getElementById("boton");
 
-let compra = prompt("Si desea comprar algún producto escriba 'SI'");
+    boton.addEventListener("click", () => { 
+        console.log("Agregar al Carrrito");
+    })
 
-if (compra == "SI") {
-    let mensaje = "A continuación escriba el ID del producto que desea \n";
-    arrayZapatillas.forEach((zapatilla1) => {
-        mensaje =
-            mensaje +
-            `${zapatilla1.marca}: $${zapatilla1.precio} - ${zapatilla1.id}\n`;
-    });
-    prompt(mensaje);
-    alert("Agregamos el producto al carrito.");
-} else {
-    alert("Gracias por si visita.");
-}
+})
+
+let contenedor = document.getElementById("container");
+contenedor.className = "container";
+

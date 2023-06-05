@@ -1,26 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,900&display=swap');
+
 *{
     padding: 0;
     margin: 0;
 }
 
-body {
-    background-color:#000000;
-}
-
-h1 {
-    color: darkblue;
-    font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 10rem;
+.titulo{
     text-align: center;
-    padding-top: 10rem;
-    text-shadow: 2px 2px white;
-}
-
-h2{
-    color: darkblue;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    background-color: midnightblue;
+    color: antiquewhite;
+    padding-block: 2rem;
     font-size: 4rem;
-    text-align: center;
-    text-shadow: 1px 1px white;
+    font-weight: 800;
 }
 
+.subtitle1{
+    font-family: 'Montserrat', sans-serif;
+    background-color: darkblue;
+    color: whitesmoke;font-size: 3rem;
+    text-align: center;
+    padding-top: 25px;
+}
+
+.subtitle2{
+    font-family: 'Montserrat', sans-serif;
+    background-color: darkblue;
+    color: whitesmoke;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 25px;
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+.container{
+    font-size: 20px;
+    display: flex;
+    gap: 5rem;
+    flex-wrap: wrap;
+    padding-top: 4rem;
+    justify-content: center;
+}
+
+.productos{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.productos p{
+    padding-block: 10px;
+}
+
+.productos-button{
+    padding: 5px;
+    margin-top: 20px;
+    font-weight: 750;
+    border-radius: 5px;
+    background-color: rgb(246 246 246);
+    color: black;
+    letter-spacing: 1px;
+    border-color: rgba(0, 0, 0, 0.5);
+}
+
+.productos-button:hover{
+    cursor: pointer;
+    transition: all 0.3s;
+    background-color: mediumblue;
+    color: white;
+}
