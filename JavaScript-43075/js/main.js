@@ -12,7 +12,7 @@ let contadorCarrito = document.getElementById("contadorCarrito");
 // Recorro el array (stockZapatillas) y usando el DOM creo las cards de mis productos
 stockZapatillas.forEach((prod) => {
     let div = document.createElement("div");
-    div.classList.add('productos');
+    div.classList.add("productos");
     div.innerHTML = `
     <img src="${prod.img}" alt="${prod.marca}" width="250px">
     <hr>
@@ -21,21 +21,23 @@ stockZapatillas.forEach((prod) => {
     <br>
     <button id="boton${prod.id}" class="productos-button">AÑADIR AL CARRITO</button>
     `;
-    
+
     contenedor.appendChild(div);
-    
+
     let boton = document.getElementById(`boton${prod.id}`);
 
-    boton.addEventListener("click", () => { 
-        const repeat = carrito.some((repeatProduct) => repeatProduct.id === prod.id);
-        Swal.fire(
-            'LISTO!',
-            'El producto se agregó correctamente!',
-            'success'
+    // Veo si el producto existe en el carrito (y agrego cantidad deseada), de lo contrario lo agrego
+
+    boton.addEventListener("click", () => {
+        const repeat = carrito.some(
+            (repeatProduct) => repeatProduct.id === prod.id
         );
-        if(repeat == true){
+
+        Swal.fire("LISTO!", "El producto se agregó correctamente!", "success");
+
+        if (repeat == true) {
             carrito.map((product) => {
-                if(product.id === prod.id){
+                if (product.id === prod.id) {
                     product.cantidad++;
                 }
             });
@@ -47,20 +49,15 @@ stockZapatillas.forEach((prod) => {
                 img: prod.img,
                 cantidad: prod.cantidad,
             });
-        }
-        console.log(carrito);
-        console.log(carrito.length);
+        };
+
         carritoContador();
         guardarLocalStorage();
     });
 });
 
-
 // UTILIZO localStorage
 
 const guardarLocalStorage = () => {
     localStorage.setItem("carrito", JSON.stringify(carrito));
-}
-
-
-
+};

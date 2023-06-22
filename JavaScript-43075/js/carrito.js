@@ -32,6 +32,7 @@ const pintarCarrito = () => {
         <b>Cantidad: ${prod.cantidad}</b>
         <span class="restar">-</span>
         <b>Total: $${prod.cantidad * prod.precio}</b>
+        <p class="eliminar-producto"><i class="fa-solid fa-trash-can"></i></p>
         `;
 
         modalContainer.append(carritoContent);
@@ -45,21 +46,20 @@ const pintarCarrito = () => {
         });
 
         let restar = carritoContent.querySelector(".restar");
-        
+
         restar.addEventListener("click", () => {
-            if(prod.cantidad !== 1){
+            if (prod.cantidad !== 1) {
                 prod.cantidad--;
             }
             guardarLocalStorage();
             pintarCarrito();
         });
 
-        let eliminarProducto = document.createElement("i");
-        eliminarProducto.innerText = "Eliminar Producto";
-        eliminarProducto.className = "eliminar-producto";
-        carritoContent.append(eliminarProducto);
+        let eliminarProducto = carritoContent.querySelector(".eliminar-producto");
 
-        eliminarProducto.addEventListener("click", borrarProducto);
+        eliminarProducto.addEventListener("click", () => {
+            borrarProducto(prod.id);
+        });
     });
 
     const total = carrito.reduce((acc, el) => acc + el.precio * el.cantidad, 0);
@@ -74,8 +74,10 @@ const pintarCarrito = () => {
 
 verCarrito.addEventListener("click", pintarCarrito);
 
-const borrarProducto = () => {
-    const encontrarId = carrito.find((element) => element.id);
+// Elimino los productos que agregue al carrito
+
+const borrarProducto = (id) => {
+    const encontrarId = carrito.find((element) => element.id === id);
     Swal.fire(
         'ATENCIÓN!',
         'El producto se eliminó del carrito!',
