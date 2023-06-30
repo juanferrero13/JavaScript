@@ -1,14 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Monoton&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,900&display=swap');
 
-*{
+* {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 /* ESTILOS GENERALES */
 
-.barra{
+.barra {
     display: flex;
     justify-content: space-around;
     padding-block: 10px;
@@ -18,7 +19,7 @@
     top: 0;
 }
 
-.carrito-barra{
+.carrito-barra {
     font-size: 40px;
     color: antiquewhite;
     padding-top: 10px;
@@ -26,17 +27,17 @@
     align-items: center;
 }
 
-.carrito-barra:hover{
+.carrito-barra:hover {
     cursor: pointer;
 }
 
-.logo{
+.logo {
     font-size: 3rem;
     color: antiquewhite;
     font-family: 'Monoton', cursive;
 }
 
-.title{
+.title {
     font-family: 'Montserrat', sans-serif;
     font-style: italic;
     font-size: 1.8rem;
@@ -46,21 +47,21 @@
     text-shadow: 1px 1px 1px black;
 }
 
-.back-img-inicio{
+.back-img-inicio {
     background-image: url(./img/backjordan-new.jpg);
     background-position: center;
     background-size: cover;
     height: 70vh;
 }
 
-.back-img-inicio-2{
+.back-img-inicio-2 {
     background-image: url(./img/backjordan-responsive.jpg);
     background-position: center;
     background-size: cover;
     display: none;
 }
 
-.container{
+.container {
     font-size: 20px;
     display: flex;
     gap: 5rem;
@@ -69,15 +70,15 @@
     justify-content: center;
 }
 
-.productos{
+.productos {
     font-family: 'Montserrat', sans-serif;
 }
 
-.productos p{
+.productos p {
     padding-block: 10px;
 }
 
-.productos-button{
+.productos-button {
     padding: 8px;
     margin-top: 50px;
     font-weight: 750;
@@ -88,7 +89,7 @@
     font-size: 16px;
 }
 
-.productos-button:hover{
+.productos-button:hover {
     cursor: pointer;
     transition: all 0.3s;
     background-color: rgb(39, 36, 36);
@@ -96,7 +97,7 @@
     border: 1px black outset;
 }
 
-.contador-carrito{
+.contador-carrito {
     background-color: rgb(174, 148, 109);
     color: white;
     font-size: 1rem;
@@ -107,26 +108,26 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-.footer{
+.footer {
     text-align: center;
     background-color: rgb(174, 148, 109);
     padding-block: 70px;
     margin-top: 60px;
 }
 
-.footer p{
+.footer p {
     font-size: 20px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
 }
 
-.footer span{
+.footer span {
     color: whitesmoke;
 }
 
 /* ESTILOS MODAL */
 
-.modal-container{
+.modal-container {
     width: 80%;
     margin: 0 10%;
     max-height: 85vh;
@@ -144,11 +145,11 @@
     border-inline: solid 2px rgb(37, 36, 36);
 }
 
-.modal-container::-webkit-scrollbar{
+.modal-container::-webkit-scrollbar {
     display: none;
 }
 
-.modal-header{
+.modal-header {
     display: flex;
     justify-content: space-around;
     background-color: rgb(37, 36, 36);
@@ -157,15 +158,20 @@
     padding-block: 20px;
 }
 
-.modal-header-title{
+.modal-header-title {
     justify-self: start;
 }
 
-.modal-header-button{
+.modal-header-button {
     cursor: pointer;
 }
 
-.modal-container > .modal-content{
+.modal-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -174,7 +180,7 @@
     padding-block: 20px;
 }
 
-.modal-total{
+.modal-total {
     font-size: 25px;
     padding: 20px;
     text-align: center;
@@ -184,22 +190,22 @@
     width: 100%;
 }
 
-.eliminar-producto{
+.eliminar-producto {
     color: rgb(37, 36, 36);
     font-size: 30px;
 }
 
-.eliminar-producto:hover{
+.eliminar-producto:hover {
     cursor: pointer;
 }
 
-.sumar{
+.sumar {
     cursor: pointer;
     font-size: 20px;
     font-weight: 500;
 }
 
-.restar{
+.restar {
     cursor: pointer;
     font-size: 20px;
     font-weight: 500;
@@ -208,79 +214,201 @@
 
 /* DISEÑO WEB RESPONSIVE */
 
+
+@media screen and (max-width:1150px) {
+    .modal-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas:
+            'img title'
+            'img precio'
+            'img cantidad'
+            'img sumar'
+            'img restar'
+            'img subtotal'
+            'img eliminar';
+        padding-block: 2rem;
+    }
+
+    .modal-content-img {
+        grid-area: img;
+    }
+
+    .modal-content-title {
+        grid-area: title;
+    }
+
+    .modal-content-precio {
+        grid-area: precio;
+    }
+
+    .sumar {
+        grid-area: sumar;
+    }
+
+    .restar {
+        grid-area: restar;
+    }
+
+    .moda-content-cantidad {
+        grid-area: cantidad;
+    }
+
+    .modal-content-subtotal {
+        grid-area: subtotal;
+    }
+
+    .eliminar-producto {
+        grid-area: eliminar;
+    }
+
+    .modal-container {
+        width: 60%;
+        margin: 0 20%;
+        max-height: 80vh;
+    }
+}
+
 @media screen and (max-width: 1000px) {
-    .logo{
+    .logo {
         font-size: 2.3rem;
     }
-    .carrito-barra{
+
+    .carrito-barra {
         font-size: 30px;
-    } 
-    .contador-carrito{
+    }
+
+    .contador-carrito {
         font-size: 0.5rem;
     }
-    .title{
+
+    .title {
         font-size: 1.4rem;
     }
-    .productos{
+
+    .productos {
         font-size: 17px;
     }
-    .productos img{
+
+    .productos img {
         width: 210px;
     }
 }
 
-@media screen and (max-width: 850px){
-    .productos{
+@media screen and (max-width:900px) {
+    .modal-container {
+        width: 70%;
+        margin: 0 15%;
+        max-height: 80vh;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .productos {
         font-size: 16px;
     }
-    .container{
+
+    .container {
         gap: 4rem;
     }
 }
 
-@media screen and (max-width: 800px){
-    .title{
+@media screen and (max-width: 800px) {
+    .title {
         margin-inline: 1.7rem;
     }
-    .container{
+
+    .container {
         gap: 3rem;
         margin-inline: 1rem;
     }
+
+    .modal-container {
+        width: 90%;
+        margin: 0 5%;
+        border: none;
+    }
 }
 
-@media screen and (max-width: 600px){
-    .logo{
-        font-size: 2rem;
+@media screen and (max-width:700px) {
+    .modal-container {
+        width: 100%;
+        margin: auto;
+        border: none;
     }
-    .carrito-barra{
-        font-size: 25px;
-        padding-top: 0;
-    } 
-    .contador-carrito{
-        font-size: 0.4rem;
+}
+
+@media screen and (max-width:650px){
+    .modal-total{
+        font-size: 20px;
     }
-    .productos{
+}
+
+
+@media screen and (max-width: 600px) {
+    .productos {
         font-size: 15px;
     }
-    .productos img{
+
+    .productos img {
         width: 200px;
     }
-    .footer p{
+
+    .footer p {
         font-size: 18px;
     }
-}
 
-@media screen and (max-width: 600px){
-    .title{
+    .title {
         font-size: 1.2rem;
     }
 }
 
-@media screen and (max-width: 450px){
-    .back-img-inicio{
+
+@media screen and (max-width:500px){
+    .modal-content{
+        justify-items: end;
+    }
+    .modal-content-img {
+        grid-area: img;
+    }
+
+    .modal-content-title {
+        font-size: 16px;
+    }
+
+    .modal-content-precio {
+        font-size: 16px;
+    }
+
+    .sumar {
+        font-size: 16px;
+    }
+
+    .restar {
+        font-size: 16px;
+    }
+
+    .moda-content-cantidad {
+        font-size: 16px;
+    }
+
+    .modal-content-subtotal {
+        font-size: 16px;
+    }
+
+    .eliminar-producto {
+        font-size: 16px;
+    }
+}
+
+
+@media screen and (max-width: 450px) {
+    .back-img-inicio {
         display: none;
     }
-    .back-img-inicio-2{
+
+    .back-img-inicio-2 {
         background-image: url(./img/backjordan-responsive.jpg);
         background-position: center;
         background-size: cover;
@@ -289,39 +417,87 @@
     }
 }
 
-@media screen and (max-width: 400px){
-    .barra{
+@media screen and (max-width: 400px) {
+    .barra {
         flex-direction: column;
         align-items: center;
     }
-    .logo{
+
+    .logo {
         padding-bottom: 10px;
     }
-    .footer p{
+
+    .footer p {
         font-size: 16px;
+    }
+    .modal-container{
+        top: 22vh
+    }
+    .modal-content-img{
+        width: 180px;
     }
 }
 
-@media screen and (max-width: 350px){
-    .logo{
-        font-size: 1.8rem;
+@media screen and (max-width: 350px) {
+    .logo {
+        font-size: 2rem;
     }
-    .carrito-barra{
-        font-size: 22px;
+
+    .carrito-barra {
+        font-size: 25px;
         padding-top: 0;
-    } 
-    .contador-carrito{
-        font-size: 0.3rem;
     }
-    .productos{
+
+    .contador-carrito {
+        font-size: 0.4rem;
+    }
+
+    .productos {
         font-size: 14px;
     }
-    .productos-button{
+
+    .productos-button {
         font-size: 14px;
     }
-    .container{
+
+    .container {
         gap: 3rem;
         margin-inline: 0;
     }
-}
 
+    .modal-total{
+        font-size: 18px;
+    }
+
+    .modal-header{
+        font-size: 15px;
+    }
+
+    .modal-content-title {
+        font-size: 14px;
+    }
+
+    .modal-content-precio {
+        font-size: 14px;
+    }
+
+    .sumar {
+        font-size: 16px;
+    }
+
+    .restar {
+        font-size: 16px;
+    }
+
+    .moda-content-cantidad {
+        font-size: 14px;
+    }
+
+    .modal-content-subtotal {
+        font-size: 14px;
+    }
+
+    .eliminar-producto {
+        font-size: 16px;
+    }
+}
