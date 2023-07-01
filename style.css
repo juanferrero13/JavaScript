@@ -339,8 +339,8 @@
     }
 }
 
-@media screen and (max-width:650px){
-    .modal-total{
+@media screen and (max-width:650px) {
+    .modal-total {
         font-size: 20px;
     }
 }
@@ -365,10 +365,11 @@
 }
 
 
-@media screen and (max-width:500px){
-    .modal-content{
+@media screen and (max-width:500px) {
+    .modal-content {
         justify-items: end;
     }
+
     .modal-content-img {
         grid-area: img;
     }
@@ -430,10 +431,12 @@
     .footer p {
         font-size: 16px;
     }
-    .modal-container{
+
+    .modal-container {
         top: 22vh
     }
-    .modal-content-img{
+
+    .modal-content-img {
         width: 180px;
     }
 }
@@ -465,11 +468,11 @@
         margin-inline: 0;
     }
 
-    .modal-total{
+    .modal-total {
         font-size: 18px;
     }
 
-    .modal-header{
+    .modal-header {
         font-size: 15px;
     }
 
@@ -499,5 +502,27 @@
 
     .eliminar-producto {
         font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .modal-content-img {
+        width: 160px;
+    }
+
+    .modal-content-title {
+        font-size: 13px;
+    }
+
+    .modal-content-precio {
+        font-size: 13px;
+    }
+
+    .moda-content-cantidad {
+        font-size: 13px;
+    }
+
+    .modal-content-subtotal {
+        font-size: 13px;
     }
 }
